@@ -1,0 +1,567 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\sqlite-net-wp8.3.8.5\build\windowsphone8\sqlite-net-wp8.props" Condition="Exists('..\packages\sqlite-net-wp8.3.8.5\build\windowsphone8\sqlite-net-wp8.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F9CF1036-0FE5-4996-8A61-2D492B59B409}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ow</RootNamespace>
+    <AssemblyName>Ow</AssemblyName>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>pt%3bpt-BR%3bpt-PT</SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>Ow_$(Configuration)_$(Platform).xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>Ow.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <NuGetPackageImportStamp>a21ccb6e</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE;USE_WP8_NATIVE_SQLITE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE;USE_WP8_NATIVE_SQLITE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\x86\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE;USE_WP8_NATIVE_SQLITE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE;USE_WP8_NATIVE_SQLITE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|ARM' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\ARM\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE;USE_WP8_NATIVE_SQLITE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|ARM' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\ARM\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE;USE_WP8_NATIVE_SQLITE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LocalizedStrings.cs" />
+    <Compile Include="Model\Country.cs" />
+    <Compile Include="Model\NotificationType.cs" />
+    <Compile Include="Service\ContactService.cs" />
+    <Compile Include="Service\CountryService.cs" />
+    <Compile Include="Service\HistoryService.cs" />
+    <Compile Include="Service\AlertService.cs" />
+    <Compile Include="Support\ChatManager.cs" />
+    <Compile Include="Support\Constants.cs" />
+    <Compile Include="Util\StringUtils.cs" />
+    <Compile Include="ViewModel\CountryPageModel.cs" />
+    <Compile Include="ViewModel\LoginPageModel.cs" />
+    <Compile Include="ViewModel\MainPageModel.cs" />
+    <Compile Include="ViewModel\RegistrationPageModel.cs" />
+    <Compile Include="View\CountryPage.xaml.cs">
+      <DependentUpon>CountryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Contact.cs" />
+    <Compile Include="Model\Login.cs" />
+    <Compile Include="Model\Notification.cs" />
+    <Compile Include="Model\Registration.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\NotifyPage.xaml.cs">
+      <DependentUpon>NotifyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RegistrationPage.xaml.cs">
+      <DependentUpon>RegistrationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\AppResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Service\RestService.cs" />
+    <Compile Include="Support\OwModule.cs" />
+    <Compile Include="Support\Session.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="Resources\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CountryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NotifyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RegistrationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Add.png" />
+    <Content Include="Assets\Back.png" />
+    <Content Include="Assets\Contacts.png" />
+    <Content Include="Assets\Mute.png" />
+    <Content Include="Assets\NewNotification.png" />
+    <Content Include="Assets\Notification.png" />
+    <Content Include="Assets\Notifications.png" />
+    <Content Include="Assets\Settings.png" />
+    <Content Include="Assets\Unmute.png" />
+    <None Include="app.config" />
+    <Content Include="Assets\Flags\flag_ad.png" />
+    <Content Include="Assets\Flags\flag_ae.png" />
+    <Content Include="Assets\Flags\flag_af.png" />
+    <Content Include="Assets\Flags\flag_ag.png" />
+    <Content Include="Assets\Flags\flag_ai.png" />
+    <Content Include="Assets\Flags\flag_al.png" />
+    <Content Include="Assets\Flags\flag_am.png" />
+    <Content Include="Assets\Flags\flag_an.png" />
+    <Content Include="Assets\Flags\flag_ao.png" />
+    <Content Include="Assets\Flags\flag_aq.png" />
+    <Content Include="Assets\Flags\flag_ar.png" />
+    <Content Include="Assets\Flags\flag_as.png" />
+    <Content Include="Assets\Flags\flag_at.png" />
+    <Content Include="Assets\Flags\flag_au.png" />
+    <Content Include="Assets\Flags\flag_aw.png" />
+    <Content Include="Assets\Flags\flag_ax.png" />
+    <Content Include="Assets\Flags\flag_az.png" />
+    <Content Include="Assets\Flags\flag_ba.png" />
+    <Content Include="Assets\Flags\flag_bb.png" />
+    <Content Include="Assets\Flags\flag_bd.png" />
+    <Content Include="Assets\Flags\flag_be.png" />
+    <Content Include="Assets\Flags\flag_bf.png" />
+    <Content Include="Assets\Flags\flag_bg.png" />
+    <Content Include="Assets\Flags\flag_bh.png" />
+    <Content Include="Assets\Flags\flag_bi.png" />
+    <Content Include="Assets\Flags\flag_bj.png" />
+    <Content Include="Assets\Flags\flag_bl.png" />
+    <Content Include="Assets\Flags\flag_bm.png" />
+    <Content Include="Assets\Flags\flag_bn.png" />
+    <Content Include="Assets\Flags\flag_bo.png" />
+    <Content Include="Assets\Flags\flag_br.png" />
+    <Content Include="Assets\Flags\flag_bs.png" />
+    <Content Include="Assets\Flags\flag_bt.png" />
+    <Content Include="Assets\Flags\flag_bw.png" />
+    <Content Include="Assets\Flags\flag_by.png" />
+    <Content Include="Assets\Flags\flag_bz.png" />
+    <Content Include="Assets\Flags\flag_ca.png" />
+    <Content Include="Assets\Flags\flag_cc.png" />
+    <Content Include="Assets\Flags\flag_cd.png" />
+    <Content Include="Assets\Flags\flag_cf.png" />
+    <Content Include="Assets\Flags\flag_cg.png" />
+    <Content Include="Assets\Flags\flag_ch.png" />
+    <Content Include="Assets\Flags\flag_ci.png" />
+    <Content Include="Assets\Flags\flag_ck.png" />
+    <Content Include="Assets\Flags\flag_cl.png" />
+    <Content Include="Assets\Flags\flag_cm.png" />
+    <Content Include="Assets\Flags\flag_cn.png" />
+    <Content Include="Assets\Flags\flag_co.png" />
+    <Content Include="Assets\Flags\flag_cr.png" />
+    <Content Include="Assets\Flags\flag_cu.png" />
+    <Content Include="Assets\Flags\flag_cv.png" />
+    <Content Include="Assets\Flags\flag_cw.png" />
+    <Content Include="Assets\Flags\flag_cx.png" />
+    <Content Include="Assets\Flags\flag_cy.png" />
+    <Content Include="Assets\Flags\flag_cz.png" />
+    <Content Include="Assets\Flags\flag_de.png" />
+    <Content Include="Assets\Flags\flag_dj.png" />
+    <Content Include="Assets\Flags\flag_dk.png" />
+    <Content Include="Assets\Flags\flag_dm.png" />
+    <Content Include="Assets\Flags\flag_do.png" />
+    <Content Include="Assets\Flags\flag_dz.png" />
+    <Content Include="Assets\Flags\flag_ec.png" />
+    <Content Include="Assets\Flags\flag_ee.png" />
+    <Content Include="Assets\Flags\flag_eg.png" />
+    <Content Include="Assets\Flags\flag_eh.png" />
+    <Content Include="Assets\Flags\flag_er.png" />
+    <Content Include="Assets\Flags\flag_es.png" />
+    <Content Include="Assets\Flags\flag_et.png" />
+    <Content Include="Assets\Flags\flag_eu.png" />
+    <Content Include="Assets\Flags\flag_fi.png" />
+    <Content Include="Assets\Flags\flag_fj.png" />
+    <Content Include="Assets\Flags\flag_fk.png" />
+    <Content Include="Assets\Flags\flag_fm.png" />
+    <Content Include="Assets\Flags\flag_fo.png" />
+    <Content Include="Assets\Flags\flag_fr.png" />
+    <Content Include="Assets\Flags\flag_ga.png" />
+    <Content Include="Assets\Flags\flag_gb.png" />
+    <Content Include="Assets\Flags\flag_gd.png" />
+    <Content Include="Assets\Flags\flag_ge.png" />
+    <Content Include="Assets\Flags\flag_gg.png" />
+    <Content Include="Assets\Flags\flag_gh.png" />
+    <Content Include="Assets\Flags\flag_gi.png" />
+    <Content Include="Assets\Flags\flag_gl.png" />
+    <Content Include="Assets\Flags\flag_gm.png" />
+    <Content Include="Assets\Flags\flag_gn.png" />
+    <Content Include="Assets\Flags\flag_gq.png" />
+    <Content Include="Assets\Flags\flag_gr.png" />
+    <Content Include="Assets\Flags\flag_gs.png" />
+    <Content Include="Assets\Flags\flag_gt.png" />
+    <Content Include="Assets\Flags\flag_gu.png" />
+    <Content Include="Assets\Flags\flag_gw.png" />
+    <Content Include="Assets\Flags\flag_gy.png" />
+    <Content Include="Assets\Flags\flag_hk.png" />
+    <Content Include="Assets\Flags\flag_hn.png" />
+    <Content Include="Assets\Flags\flag_hr.png" />
+    <Content Include="Assets\Flags\flag_ht.png" />
+    <Content Include="Assets\Flags\flag_hu.png" />
+    <Content Include="Assets\Flags\flag_ic.png" />
+    <Content Include="Assets\Flags\flag_id.png" />
+    <Content Include="Assets\Flags\flag_ie.png" />
+    <Content Include="Assets\Flags\flag_il.png" />
+    <Content Include="Assets\Flags\flag_im.png" />
+    <Content Include="Assets\Flags\flag_in.png" />
+    <Content Include="Assets\Flags\flag_iq.png" />
+    <Content Include="Assets\Flags\flag_ir.png" />
+    <Content Include="Assets\Flags\flag_is.png" />
+    <Content Include="Assets\Flags\flag_it.png" />
+    <Content Include="Assets\Flags\flag_je.png" />
+    <Content Include="Assets\Flags\flag_jm.png" />
+    <Content Include="Assets\Flags\flag_jo.png" />
+    <Content Include="Assets\Flags\flag_jp.png" />
+    <Content Include="Assets\Flags\flag_ke.png" />
+    <Content Include="Assets\Flags\flag_kg.png" />
+    <Content Include="Assets\Flags\flag_kh.png" />
+    <Content Include="Assets\Flags\flag_ki.png" />
+    <Content Include="Assets\Flags\flag_km.png" />
+    <Content Include="Assets\Flags\flag_kn.png" />
+    <Content Include="Assets\Flags\flag_kp.png" />
+    <Content Include="Assets\Flags\flag_kr.png" />
+    <Content Include="Assets\Flags\flag_kw.png" />
+    <Content Include="Assets\Flags\flag_ky.png" />
+    <Content Include="Assets\Flags\flag_kz.png" />
+    <Content Include="Assets\Flags\flag_la.png" />
+    <Content Include="Assets\Flags\flag_lb.png" />
+    <Content Include="Assets\Flags\flag_lc.png" />
+    <Content Include="Assets\Flags\flag_li.png" />
+    <Content Include="Assets\Flags\flag_lk.png" />
+    <Content Include="Assets\Flags\flag_lr.png" />
+    <Content Include="Assets\Flags\flag_ls.png" />
+    <Content Include="Assets\Flags\flag_lt.png" />
+    <Content Include="Assets\Flags\flag_lu.png" />
+    <Content Include="Assets\Flags\flag_lv.png" />
+    <Content Include="Assets\Flags\flag_ly.png" />
+    <Content Include="Assets\Flags\flag_ma.png" />
+    <Content Include="Assets\Flags\flag_mc.png" />
+    <Content Include="Assets\Flags\flag_md.png" />
+    <Content Include="Assets\Flags\flag_me.png" />
+    <Content Include="Assets\Flags\flag_mf.png" />
+    <Content Include="Assets\Flags\flag_mg.png" />
+    <Content Include="Assets\Flags\flag_mh.png" />
+    <Content Include="Assets\Flags\flag_mk.png" />
+    <Content Include="Assets\Flags\flag_ml.png" />
+    <Content Include="Assets\Flags\flag_mm.png" />
+    <Content Include="Assets\Flags\flag_mn.png" />
+    <Content Include="Assets\Flags\flag_mo.png" />
+    <Content Include="Assets\Flags\flag_mp.png" />
+    <Content Include="Assets\Flags\flag_mq.png" />
+    <Content Include="Assets\Flags\flag_mr.png" />
+    <Content Include="Assets\Flags\flag_ms.png" />
+    <Content Include="Assets\Flags\flag_mt.png" />
+    <Content Include="Assets\Flags\flag_mu.png" />
+    <Content Include="Assets\Flags\flag_mv.png" />
+    <Content Include="Assets\Flags\flag_mw.png" />
+    <Content Include="Assets\Flags\flag_mx.png" />
+    <Content Include="Assets\Flags\flag_my.png" />
+    <Content Include="Assets\Flags\flag_mz.png" />
+    <Content Include="Assets\Flags\flag_na.png" />
+    <Content Include="Assets\Flags\flag_nc.png" />
+    <Content Include="Assets\Flags\flag_ne.png" />
+    <Content Include="Assets\Flags\flag_nf.png" />
+    <Content Include="Assets\Flags\flag_ng.png" />
+    <Content Include="Assets\Flags\flag_ni.png" />
+    <Content Include="Assets\Flags\flag_nl.png" />
+    <Content Include="Assets\Flags\flag_no.png" />
+    <Content Include="Assets\Flags\flag_np.png" />
+    <Content Include="Assets\Flags\flag_nr.png" />
+    <Content Include="Assets\Flags\flag_nu.png" />
+    <Content Include="Assets\Flags\flag_nz.png" />
+    <Content Include="Assets\Flags\flag_om.png" />
+    <Content Include="Assets\Flags\flag_pa.png" />
+    <Content Include="Assets\Flags\flag_pe.png" />
+    <Content Include="Assets\Flags\flag_pf.png" />
+    <Content Include="Assets\Flags\flag_pg.png" />
+    <Content Include="Assets\Flags\flag_ph.png" />
+    <Content Include="Assets\Flags\flag_pk.png" />
+    <Content Include="Assets\Flags\flag_pl.png" />
+    <Content Include="Assets\Flags\flag_pn.png" />
+    <Content Include="Assets\Flags\flag_pr.png" />
+    <Content Include="Assets\Flags\flag_ps.png" />
+    <Content Include="Assets\Flags\flag_pt.png" />
+    <Content Include="Assets\Flags\flag_pw.png" />
+    <Content Include="Assets\Flags\flag_py.png" />
+    <Content Include="Assets\Flags\flag_qa.png" />
+    <Content Include="Assets\Flags\flag_ro.png" />
+    <Content Include="Assets\Flags\flag_rs.png" />
+    <Content Include="Assets\Flags\flag_ru.png" />
+    <Content Include="Assets\Flags\flag_rw.png" />
+    <Content Include="Assets\Flags\flag_sa.png" />
+    <Content Include="Assets\Flags\flag_sb.png" />
+    <Content Include="Assets\Flags\flag_sc.png" />
+    <Content Include="Assets\Flags\flag_sd.png" />
+    <Content Include="Assets\Flags\flag_se.png" />
+    <Content Include="Assets\Flags\flag_sg.png" />
+    <Content Include="Assets\Flags\flag_sh.png" />
+    <Content Include="Assets\Flags\flag_si.png" />
+    <Content Include="Assets\Flags\flag_sk.png" />
+    <Content Include="Assets\Flags\flag_sl.png" />
+    <Content Include="Assets\Flags\flag_sm.png" />
+    <Content Include="Assets\Flags\flag_sn.png" />
+    <Content Include="Assets\Flags\flag_so.png" />
+    <Content Include="Assets\Flags\flag_sr.png" />
+    <Content Include="Assets\Flags\flag_ss.png" />
+    <Content Include="Assets\Flags\flag_st.png" />
+    <Content Include="Assets\Flags\flag_sv.png" />
+    <Content Include="Assets\Flags\flag_sy.png" />
+    <Content Include="Assets\Flags\flag_sz.png" />
+    <Content Include="Assets\Flags\flag_tc.png" />
+    <Content Include="Assets\Flags\flag_td.png" />
+    <Content Include="Assets\Flags\flag_tf.png" />
+    <Content Include="Assets\Flags\flag_tg.png" />
+    <Content Include="Assets\Flags\flag_th.png" />
+    <Content Include="Assets\Flags\flag_tj.png" />
+    <Content Include="Assets\Flags\flag_tk.png" />
+    <Content Include="Assets\Flags\flag_tl.png" />
+    <Content Include="Assets\Flags\flag_tm.png" />
+    <Content Include="Assets\Flags\flag_tn.png" />
+    <Content Include="Assets\Flags\flag_to.png" />
+    <Content Include="Assets\Flags\flag_tr.png" />
+    <Content Include="Assets\Flags\flag_tt.png" />
+    <Content Include="Assets\Flags\flag_tv.png" />
+    <Content Include="Assets\Flags\flag_tw.png" />
+    <Content Include="Assets\Flags\flag_tz.png" />
+    <Content Include="Assets\Flags\flag_ua.png" />
+    <Content Include="Assets\Flags\flag_ug.png" />
+    <Content Include="Assets\Flags\flag_us.png" />
+    <Content Include="Assets\Flags\flag_uy.png" />
+    <Content Include="Assets\Flags\flag_uz.png" />
+    <Content Include="Assets\Flags\flag_va.png" />
+    <Content Include="Assets\Flags\flag_vc.png" />
+    <Content Include="Assets\Flags\flag_ve.png" />
+    <Content Include="Assets\Flags\flag_vg.png" />
+    <Content Include="Assets\Flags\flag_vi.png" />
+    <Content Include="Assets\Flags\flag_vn.png" />
+    <Content Include="Assets\Flags\flag_vu.png" />
+    <Content Include="Assets\Flags\flag_wf.png" />
+    <Content Include="Assets\Flags\flag_ws.png" />
+    <Content Include="Assets\Flags\flag_ye.png" />
+    <Content Include="Assets\Flags\flag_yt.png" />
+    <Content Include="Assets\Flags\flag_za.png" />
+    <Content Include="Assets\Flags\flag_zm.png" />
+    <Content Include="Assets\Flags\flag_zw.png" />
+    <Content Include="Assets\Fonts\MavenPro-Black.ttf" />
+    <Content Include="Assets\Fonts\MavenPro-Bold.ttf" />
+    <Content Include="Assets\Fonts\MavenPro-Medium.ttf" />
+    <Content Include="Assets\Fonts\MavenPro-Regular.ttf" />
+    <Content Include="Assets\Data\countries.json" />
+    <Content Include="Assets\Data\ow.db" />
+    <None Include="packages.config" />
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\AlignmentGrid.png" />
+    <Content Include="Assets\ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\ow.wav" />
+    <Content Include="Assets\Audio\perai.wav" />
+    <Content Include="Assets\Audio\vamo.wav" />
+    <Content Include="Assets\Audio\maneiro.wav" />
+    <Content Include="Assets\Audio\chegou.wav" />
+    <Content Include="Assets\Audio\tocomfome.wav" />
+    <Content Include="Assets\Audio\owkey.wav" />
+    <Content Include="Assets\BadgeLogo.png" />
+    <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\SplashScreen.png" />
+    <Content Include="Assets\SquareTile150x150.png" />
+    <Content Include="Assets\SquareTile71x71.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\WideLogo.png" />
+    <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileMedium.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileSmall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\IconicTileMediumLarge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\IconicTileSmall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AppResources.pt-BR.resx" />
+    <EmbeddedResource Include="Resources\AppResources.pt-PT.resx" />
+    <EmbeddedResource Include="Resources\AppResources.pt.resx" />
+    <EmbeddedResource Include="Resources\AppResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.5.2\lib\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Extras.CommonServiceLocator">
+      <HintPath>..\packages\Autofac.Extras.CommonServiceLocator.3.2.0\lib\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\Autofac.Extras.CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="Coding4Fun.Toolkit.Controls">
+      <HintPath>..\packages\Coding4Fun.Toolkit.Controls.2.0.7\lib\windowsphone8\Coding4Fun.Toolkit.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight">
+      <HintPath>..\packages\MvvmLightLibs.4.4.32.1\lib\wp8\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras">
+      <HintPath>..\packages\MvvmLightLibs.4.4.32.1\lib\wp8\GalaSoft.MvvmLight.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=8.0.1.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WPtoolkit.Kinnara.4.2014.08.05\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Sqlite, Version=255.255.255.255, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\sqlite-net-wp8.3.8.5\lib\windowsphone8\Sqlite.winmd</HintPath>
+    </Reference>
+    <Reference Include="SQLite.Net">
+      <HintPath>..\packages\SQLite.Net-PCL.2.3.0\lib\portable-net4+sl5+netcore45+wp8+MonoAndroid1+MonoTouch1\SQLite.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.Net.Platform.WindowsPhone8">
+      <HintPath>..\packages\SQLite.Net.Platform.WindowsPhone8.2.3.0\lib\windowsphone8\x86\SQLite.Net.Platform.WindowsPhone8.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLiteNetExtensions">
+      <HintPath>..\packages\SQLiteNetExtensions.1.1.1\lib\portable-net45+sl5+netcore45+wp8+MonoAndroid1+MonoTouch1\SQLiteNetExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.4.4.32.1\lib\wp8\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="WebSocket4Net, Version=0.10.0.0, Culture=neutral, PublicKeyToken=eb4e154b696bf72a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebSocket4Net.0.10\lib\sl40-windowsphone71\WebSocket4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="WebSocketRails, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebSocketRails.1.0.7\lib\wp81\WebSocketRails.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="SQLite.WP80, Version=3.8.6">
+      <Name>SQLite for Windows Phone</Name>
+    </SDKReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\sqlite-net-wp8.3.8.5\build\windowsphone8\sqlite-net-wp8.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sqlite-net-wp8.3.8.5\build\windowsphone8\sqlite-net-wp8.props'))" />
+    <Error Condition="!Exists('..\packages\sqlite-net-wp8.3.8.5\build\windowsphone8\sqlite-net-wp8.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sqlite-net-wp8.3.8.5\build\windowsphone8\sqlite-net-wp8.targets'))" />
+  </Target>
+  <Import Project="..\packages\sqlite-net-wp8.3.8.5\build\windowsphone8\sqlite-net-wp8.targets" Condition="Exists('..\packages\sqlite-net-wp8.3.8.5\build\windowsphone8\sqlite-net-wp8.targets')" />
+</Project>
